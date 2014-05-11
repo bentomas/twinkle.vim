@@ -59,8 +59,8 @@ noremap <silent> <Plug>(TwinkleMagicPoundNormal)
     \:call <SID>SaveYankRegisters()<CR>
     \:call  <SID>SetIskeywordForFileType(&filetype)<CR>
     \:let @0 = <SID>VeryMagicEscape(expand('<cword>'))<CR>
-    \:echo '/\v'.@0<CR>
-    \?\v<<C-R><C-R>0<CR>><CR>
+    \:echo '/\v<'.@0.'>'<CR>
+    \?\v<<C-R><C-R>0><CR>
     \:call <SID>RestoreIskeyword()<CR>
     \:call <SID>RestoreYankRegisters()<CR>
 
@@ -78,8 +78,9 @@ noremap <silent> <Plug>(TwinkleMagicPoundVisual)
     \ :<C-U>
     \call <SID>SaveYankRegisters()<CR>
     \gvy
-    \:let search=<SID>VeryMagicEscape(@")
-    \?\v<C-R><C-R>=search<CR><CR>
+    \:let @0 = <SID>VeryMagicEscape(@")<CR>
+    \:echo '/\v'.@0<CR>
+    \?\v<C-R><C-R>0<CR>
     \gV
     \:call <SID>RestoreYankRegisters()<CR>
 
