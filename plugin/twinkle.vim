@@ -83,12 +83,9 @@ noremap <silent> <Plug>(TwinkleMagicPoundVisual)
     \gV
     \:call <SID>RestoreYankRegisters()<CR>
 
-noremap <silent> <Plug>(TwinkleMagicSearch)           /\v
-noremap <silent> <Plug>(TwinkleMagicReverseSearch)    ?\v
-
 if g:twinkle_add_mappings
-    map  / <Plug>(TwinkleMagicSearch
-    map  ? <Plug>(TwinkleMagicReverseSearch)
+    map  / /\v
+    map  ? ?\v
 
     nmap * <Plug>(TwinkleMagicStarNormal)
     nmap # <Plug>(TwinkleMagicPoundNormal)
