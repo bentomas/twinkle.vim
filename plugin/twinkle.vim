@@ -22,9 +22,17 @@ endfunction
 
 function! s:SetIskeywordForFileType(filetype)
     if has_key(g:twinkle_filetype_iskeywords, a:filetype)
-        let &l:iskeyword = g:twinkle_filetype_iskeywords[a:filetype]
+        let iskeyword = g:twinkle_filetype_iskeywords[a:filetype]
     elseif has_key(g:twinkle_filetype_iskeywords, '*')
-        let &l:iskeyword = g:twinkle_filetype_iskeywords['*']
+        let iskeyword = g:twinkle_filetype_iskeywords['*']
+    else
+        let iskeyword = ''
+    endif
+
+    if iskeyword[0] == '='
+        let &l:iskeyword = iskeyword[1:]
+    elseif iskeyword[0] == '+'
+        let &l:iskeyword .= ','.iskeyword[1:]
     endif
 endfunction
 
